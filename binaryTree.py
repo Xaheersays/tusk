@@ -119,3 +119,38 @@ d
 e
 f
 g
+
+
+
+
+from collections import deque
+def levelorder2(root):
+    q=deque([None,root])
+    while True:
+        n=q.pop()
+        if n:
+            print(n.data)
+            if n.left:
+                q.appendleft(n.left)
+            if n.right:
+                q.appendleft(n.right)
+        else:
+            print("..........>")
+            if q:
+                q.appendleft(None)
+            else : 
+                break
+levelorder2(a)
+
+#ans
+
+a
+..........>
+b
+c
+..........>
+d
+e
+f
+g
+..........>
