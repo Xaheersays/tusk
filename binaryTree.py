@@ -99,3 +99,23 @@ c
 f
 g
 
+from collections import deque
+def levelorder(root):
+    q=deque([root])
+    while q:
+        x=q.pop()
+        print(x.data)
+        if x.left:
+            q.appendleft(x.left)
+        if x.right:
+            q.appendleft(x.right)
+            
+levelorder(a)
+#ans
+a
+b
+c
+d
+e
+f
+g
