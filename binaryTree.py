@@ -4,7 +4,7 @@ class Node:
         self.left=left
         self.right=right
         
-
+root=a=Node(1,Node(2,Node(3),Node(4)),Node(5,Node(6),Node(7)))
         
 a=Node("a")
 b=Node("b")
