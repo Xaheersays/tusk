@@ -4,7 +4,7 @@
 nums   = [1, 4, 3, -5, -4, 8, 6]
 
 #   first approach 01
-# consvertion for loop into recursive function
+# convert for loop into recursive function
 def Solve(nums,MinEle,MaxEle):
     n = len(nums)
     def Find(nums,i):
