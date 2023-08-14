@@ -1,0 +1,15 @@
+class Solution:
+    def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+        A = nums
+        def f(goal):
+            N = len(nums) 
+            i =  j =  cnt =  ans = 0
+            while (j < N) :
+                cnt += A[j]
+                j+=1
+                while (i < j and cnt > goal):
+                    cnt -= A[i]
+                    i+=1
+                ans += j - i
+            return ans
+        return f(goal)-f(goal-1)
