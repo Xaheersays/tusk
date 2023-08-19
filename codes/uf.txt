@@ -1,0 +1,124 @@
+class UnionFind():
+    def __init__(self,n):
+        self.par = [i for i in range(n+3)]
+        self.rank =[1]*(n+3)
+    def Find(self,n):
+        if n==self.par[n]:
+            return self.par[n]
+        self.par[n] = self.Find(self.par[n])
+        return self.par[n]
+    def Union(self, n1, n2):
+        p1 = self.Find(n1)
+        p2 = self.Find(n2)
+        if p1 == p2:
+            return 0
+        if self.rank[p1] >= self.rank[p2]:
+            self.par[p2] = p1
+            self.rank[p1] += self.rank[p2]
+            return self.par[p2]
+        else:
+            self.rank[p2] += self.rank[p1]
+            self.par[p1] = p2
+            return self.par[p1]
+
+# edges = [[1,3],[1,2],[3,4],[2,4],[2,5],[5,6],[5,7],[7,8],[6,8]]
+# ans = 0
+# uf = UnionFind(9)
+# f =1
+# for i,j in edges:
+#     val = uf.Union(i,j)
+#     if val == 0:
+#         f = 0
+#         print(f"found edge on {i}-->{j} ")
+#     ans +=val
+# if f:
+#     print("No cycle Found")
+# isBorderCell = lambda i,j:i == 0 or j == 0 or  i == 5-1 or j == 6-1
+
+# def find(n):    
+#     res = n 
+#     if par[res]==res:
+#         return res
+#     par[res] =  find(par[res])
+#     return par[res]
+    # itertive
+#     # while res!=par[res]:
+#     #     par[res] = par[par[res]]
+#     #     res = par[res]
+#     # return res
+
+# def union(n1, n2):
+#     p1 = find(n1)
+#     p2 = find(n2)
+#     if p1 == p2:
+#         return 0
+#     if size[p1] >= size[p2]:
+#         par[p2] = p1
+#         size[p1] += size[p2]
+#     else:
+#         par[p1] = p2
+#         size[p2] += size[p1]
+#     return 1
+
+# # class DSU:
+    
+# #     def __init__ (self):
+# #         self.par = [-1 for x in range(10**4 + 1)]
+# #         self.intervals = {}
+# #     def find(self, n):
+# #         if self.par[n] == -1:
+# #             return -1
+# #         if self.par[n] != n:
+# #             self.par[n] = self.find(self.par[n])
+# #         return self.par[n]
+        
+# #     def union(self, n1, n2):
+# #         p1 = self.find(n1)
+# #         p2 = self.find(n2)
+        
+# #         if p1 == -1 or p2 == -1 or p1 == p2:
+# #             return
+        
+# #         a = self.intervals[p1]
+        
+      
+        
+# #         del self.intervals[p1]
+# #         b = self.intervals[p2]
+# #         self.par[p1] = p2
+# #         self.intervals[p2] = [min(a[0], b[0]), max(a[1], b[1])]
+# #     def insert(self, value):
+# #         if self.par[value] != -1:
+# #             return
+        
+# #         self.par[value] = value
+# #         self.intervals[value] = [value, value]
+                        
+        
+
+# # class SummaryRanges:
+
+# #     def __init__(self):
+# #         self.dsu = DSU()
+
+# #     def addNum(self, value: int) -> None:
+# #         self.dsu.insert(value)
+# #         self.dsu.union(value, value-1)
+# #         self.dsu.union(value, value+1)
+        
+
+# #     def getIntervals(self) -> List[List[int]]:
+# #         return sorted(self.dsu.intervals.values())
+
+
+
+                
+        
+        
+        
+            
+                
+        
+        
+        
+            
